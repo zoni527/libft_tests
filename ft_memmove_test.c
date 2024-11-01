@@ -29,6 +29,7 @@ int	main(int argc, char **argv)
 	void	*void_ptr2;
 	int		int_array1[INT_ARRAY_LENGTH] = {0};
 	int		int_array2[INT_ARRAY_LENGTH] = {0};
+	int		n = -1;
 	int		i;
 
 	memset(buffer1, 0, BUFFER_LENGTH);
@@ -42,6 +43,8 @@ int	main(int argc, char **argv)
 	if (argc > 2)
 		s2 = argv[2];
 	if (argc > 3)
+		n = atoi(argv[3]);
+	if (argc > 4)
 	{
 		printf("\nThe program works with 0, 1, or 2 command line arguments\n\n");
 		return (0);
@@ -50,20 +53,15 @@ int	main(int argc, char **argv)
 	printf("\n%-10s%s\n", "String 1:", s1);
 	printf("%-10s%s\n", "String 2:", s2);
 	i = -1;
-	while (s1[++i])
-	{
-		buffer1[i] = s1[i];
-		buffer2[i] = s1[i];
-	}
-	buffer1[i] = '\0';
-	buffer2[i] = '\0';
+	memcpy(buffer1, s1, strlen(s1) + 1);
+	memcpy(buffer2, s1, strlen(s1) + 1);
 
 	printf("\n");
 	i = 0;
 	while (i <= (int)strlen(s1) + 1 || i <= (int)strlen(s2) + 1)
 	{
-		void_ptr1 = memcpy(buffer1, s2, i);
-		void_ptr2 = ft_memcpy(buffer2, s2, i);
+		void_ptr1 = memmove(buffer1, s2, i);
+		void_ptr2 = ft_memmove(buffer2, s2, i);
 		printf("%-3s%3d%25s%17p%20s%-20s\n", "n:", i, "memcpy return val:", void_ptr1, "buffer 1:   ", buffer1);
 		printf("%-3s%3d%25s%17p%20s%-20s\n", "  ", i, "ft_memcpy return val:", void_ptr2, "buffer 2:   ", buffer2);
 		i++;

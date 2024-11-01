@@ -38,14 +38,14 @@ int	main(int argc, char **argv)
 	}
 	printf("--------------------------------------------------------------\n");
 	printf("Extra tests\n");
-	printf("Character: %3c\tascii: %3d\tisprint: %3d\tft_isprint: %3d\n",
-		-1, -1, isprint(-1), ft_isprint(-1));
-	printf("Character: %3c\tascii: %3d\tisprint: %3d\tft_isprint: %3d\n",
-		0, 0, isprint(0), ft_isprint(0));
-	printf("Character: %3c\tascii: %3d\tisprint: %3d\tft_isprint: %3d\n",
-		127, 127, isprint(127), ft_isprint(127));
+	i = -2;
+	while (++i < 130)
+		printf("Character: %3c\tascii: %3d\tisprint: %3d\tft_isprint: %3d\n",
+			i, i, isprint(i), ft_isprint(i));
 	printf("Character: %3c\tascii: %3d\tisprint: %3d\tft_isprint: %3d\n",
 		255, 255, isprint(255), ft_isprint(255));
+	printf("Character: %3c\tascii: %3d\tisprint: %3d\tft_isprint: %3d\n",
+		300, 300, isprint(300), ft_isprint(300));
 	printf("\n");
 	return (0);
 }

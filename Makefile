@@ -166,6 +166,15 @@ ft_memcpy_test.o: ft_memcpy_test.c $(HF)
 $(SRC)ft_memcpy.o: $(SRC)ft_memcpy.c $(HF)
 	$(CC) $(CFLAGS) -c $(SRC)ft_memcpy.c -o $(SRC)ft_memcpy.o
 
+ft_memmove_test: ft_memmove_test.o $(SRC)ft_memmove.o
+	$(CC) $(CFLAGS) -o ft_memmove_test ft_memmove_test.o $(SRC)ft_memmove.o
+
+ft_memmove_test.o: ft_memmove_test.c $(HF)
+	$(CC) $(CFLAGS) -c ft_memmove_test.c
+
+$(SRC)ft_memmove.o: $(SRC)ft_memmove.c $(HF)
+	$(CC) $(CFLAGS) -c $(SRC)ft_memmove.c -o $(SRC)ft_memmove.o
+
 fclean: clean
 	rm ./*_test
 
