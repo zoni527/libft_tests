@@ -21,7 +21,15 @@ int	main(int argc, char **argv)
 	int		i;
 
 	if (argc == 1)
-		s = "Test string 0123456789 abcxyz ABCXYZ !#|~";
+	{
+		printf("\n\n");
+		i = -2;
+		while (++i < 129)
+			printf("Character: %4c\tascii: %4d\tisalpha: %4d\tft_isalpha: %4d\n",
+				i, i, isalpha(i), ft_isalpha(i));
+		printf("\n");
+		return (0);
+	}
 	if (argc == 2)
 		s = argv[1];
 	if (argc > 2)
@@ -33,18 +41,18 @@ int	main(int argc, char **argv)
 	i = -1;
 	while (++i <= (int)strlen(s))
 	{
-		printf("Character: %3c\tascii: %3d\tisalpha: %3d\tft_isalpha: %3d\n",
+		printf("Character: %4c\tascii: %4d\tisalpha: %4d\tft_isalpha: %4d\n",
 			s[i], s[i], isalpha(s[i]), ft_isalpha(s[i]));
 	}
 	printf("--------------------------------------------------------------\n");
 	printf("Extra tests\n");
-	printf("Character: %3c\tascii: %3d\tisalpha: %3d\tft_isalpha: %3d\n",
+	printf("Character: %4c\tascii: %4d\tisalpha: %4d\tft_isalpha: %4d\n",
 		-1, -1, isalpha(-1), ft_isalpha(-1));
-	printf("Character: %3c\tascii: %3d\tisalpha: %3d\tft_isalpha: %3d\n",
+	printf("Character: %4c\tascii: %4d\tisalpha: %4d\tft_isalpha: %4d\n",
 		0, 0, isalpha(0), ft_isalpha(0));
-	printf("Character: %3c\tascii: %3d\tisalpha: %3d\tft_isalpha: %3d\n",
+	printf("Character: %4c\tascii: %4d\tisalpha: %4d\tft_isalpha: %4d\n",
 		127, 127, isalpha(127), ft_isalpha(127));
-	printf("Character: %3c\tascii: %3d\tisalpha: %3d\tft_isalpha: %3d\n",
+	printf("Character: %4c\tascii: %4d\tisalpha: %4d\tft_isalpha: %4d\n",
 		255, 255, isalpha(255), ft_isalpha(255));
 	printf("\n");
 	return (0);

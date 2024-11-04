@@ -29,22 +29,8 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	i = 0;
-	printf("\nString: %s\nstrlen: %lu\tft_strlen: %lu\n",
+	printf("\nString: %s\nstrlen:    %lu\nft_strlen: %lu\n",
 			s, strlen(s), ft_strlen(s));
-	printf("-----------------------------------\n");
-	printf("Extra tests\n");
-	s = "";
-	printf("String: %s\nstrlen: %lu\tft_strlen: %lu\n\n",
-		s, strlen(s), ft_strlen(s));
-	s = "abc";
-	printf("String: %s\nstrlen: %lu\tft_strlen: %lu\n\n",
-		s, strlen(s), ft_strlen(s));
-	s = "asdlfasdfasdfasdf;;asdf,,asdf08123asdfsdafsdfasf+)()_*!@#";
-	printf("String: %s\nstrlen: %lu\tft_strlen: %lu\n\n",
-		s, strlen(s), ft_strlen(s));
-	s = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-	printf("String: %s\nstrlen: %lu\tft_strlen: %lu\n",
-		s, strlen(s), ft_strlen(s));
 	printf("\n");
 	return (0);
 }

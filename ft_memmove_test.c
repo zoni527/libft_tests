@@ -62,10 +62,21 @@ int	main(int argc, char **argv)
 	{
 		void_ptr1 = memmove(buffer1, s2, i);
 		void_ptr2 = ft_memmove(buffer2, s2, i);
-		printf("%-3s%3d%25s%17p%20s%-20s\n", "n:", i, "memcpy return val:", void_ptr1, "buffer 1:   ", buffer1);
-		printf("%-3s%3d%25s%17p%20s%-20s\n", "  ", i, "ft_memcpy return val:", void_ptr2, "buffer 2:   ", buffer2);
+		printf("%-3s%3d%25s%17p%20s%-20s\n", "n:", i, "memmove return val:", void_ptr1, "buffer 1:   ", buffer1);
+		printf("%-3s%3d%25s%17p%20s%-20s\n", "  ", i, "ft_memmove return val:", void_ptr2, "buffer 2:   ", buffer2);
 		i++;
 	}
-	printf("\n");
+	printf("\n\n");
+	printf("Extra tests\n\n");
+	memmove(buffer1, "abcdefghijklmnopqrstuvwxyz", 27);
+	memmove(buffer2, "abcdefghijklmnopqrstuvwxyz", 27);
+	printf("Buffer 1: %s\nBuffer 2: %s\n\n", buffer1, buffer2);
+	int	chars = 6;
+	int	offset = 4;
+	printf("Reading from beginning, writing %d characters with a %d character offset from the beginning\n\n", chars, offset);
+	memmove(buffer1, buffer1 + offset, chars);
+	ft_memmove(buffer2, buffer2 + offset, chars);
+	printf("%s%-20s\n", "buffer 1:   ", buffer1);
+	printf("%s%-20s\n", "buffer 2:   ", buffer2);
 	return (0);
 }

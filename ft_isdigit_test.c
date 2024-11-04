@@ -21,7 +21,15 @@ int	main(int argc, char **argv)
 	int		i;
 
 	if (argc == 1)
-		s = "Test string 0123456789 abcxyz ABCXYZ !#|~";
+	{
+		printf("\n\n");
+		i = -2;
+		while (++i < 129)
+			printf("Character: %4c\tascii: %4d\tisdigit: %4d\tft_isdigit: %4d\n",
+				i, i, isdigit(i), ft_isdigit(i));
+		printf("\n");
+		return (0);
+	}
 	if (argc == 2)
 		s = argv[1];
 	if (argc > 2)
@@ -33,18 +41,18 @@ int	main(int argc, char **argv)
 	i = -1;
 	while (++i <= (int)strlen(s))
 	{
-		printf("Character: %3c\tascii: %3d\tisdigit: %3d\tft_isdigit: %3d\n",
+		printf("Character: %4c\tascii: %4d\tisdigit: %4d\tft_isdigit: %4d\n",
 			s[i], s[i], isdigit(s[i]), ft_isdigit(s[i]));
 	}
 	printf("--------------------------------------------------------------\n");
 	printf("Extra tests\n");
-	printf("Character: %3c\tascii: %3d\tisdigit: %3d\tft_isdigit: %3d\n",
+	printf("Character: %4c\tascii: %4d\tisdigit: %4d\tft_isdigit: %4d\n",
 		-1, -1, isdigit(-1), ft_isdigit(-1));
-	printf("Character: %3c\tascii: %3d\tisdigit: %3d\tft_isdigit: %3d\n",
+	printf("Character: %4c\tascii: %4d\tisdigit: %4d\tft_isdigit: %4d\n",
 		0, 0, isdigit(0), ft_isdigit(0));
-	printf("Character: %3c\tascii: %3d\tisdigit: %3d\tft_isdigit: %3d\n",
+	printf("Character: %4c\tascii: %4d\tisdigit: %4d\tft_isdigit: %4d\n",
 		127, 127, isdigit(127), ft_isdigit(127));
-	printf("Character: %3c\tascii: %3d\tisdigit: %3d\tft_isdigit: %3d\n",
+	printf("Character: %4c\tascii: %4d\tisdigit: %4d\tft_isdigit: %4d\n",
 		255, 255, isdigit(255), ft_isdigit(255));
 	printf("\n");
 	return (0);

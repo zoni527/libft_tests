@@ -59,14 +59,14 @@ int	main(int argc, char **argv)
 		ft_bzero(buffer2, strlen(s2));
 	}
 	printf("\n\nAfter running bzero and ft_bzero:");
-	printf("\n%s\n", "Buffer 1:");
+	printf("\n\n%s   ", "Buffer 1:");
 	i = -1;
 	while (++i < (int)strlen(s1) + 1)
 		if (buffer1[i] == 0)
 			printf("%3s", "\\0");
 		else
 			printf("%3c", buffer1[i]);
-	printf("\n\n%s\n", "Buffer 2:");
+	printf("\n%s   ", "Buffer 2:");
 	i = -1;
 	while (++i < (int)strlen(s2) + 1)
 		if (buffer2[i] == 0)
@@ -85,7 +85,7 @@ int	main(int argc, char **argv)
 	print_int_array(array2, INT_ARRAY_SIZE);
 	bzero(array1, sizeof(array1));
 	ft_bzero(array2, sizeof(array2));
-	printf("Int array 1 after bzero:     ");
+	printf("\nInt array 1 after bzero:     ");
 	print_int_array(array1, INT_ARRAY_SIZE);
 	printf("Int array 2 after ft_bzero:  ");
 	print_int_array(array2, INT_ARRAY_SIZE);

@@ -21,7 +21,15 @@ int	main(int argc, char **argv)
 	int		i;
 
 	if (argc == 1)
-		s = "Test string 0123456789 abcxyz ABCXYZ !#|~";
+	{
+		printf("\n\n");
+		i = -2;
+		while (++i < 129)
+			printf("Character: %4c\tascii: %4d\tisalnum: %4d\tft_isalnum: %4d\n",
+				i, i, isalnum(i), ft_isalnum(i));
+		printf("\n");
+		return (0);
+	}
 	if (argc == 2)
 		s = argv[1];
 	if (argc > 2)
@@ -33,18 +41,18 @@ int	main(int argc, char **argv)
 	i = -1;
 	while (++i <= (int)strlen(s))
 	{
-		printf("Character: %3c\tascii: %3d\tisalnum: %3d\tft_isalnum: %3d\n",
+		printf("Character: %4c\tascii: %4d\tisalnum: %4d\tft_isalnum: %4d\n",
 			s[i], s[i], isalnum(s[i]), ft_isalnum(s[i]));
 	}
 	printf("--------------------------------------------------------------\n");
 	printf("Extra tests\n");
-	printf("Character: %3c\tascii: %3d\tisalnum: %3d\tft_isalnum: %3d\n",
+	printf("Character: %4c\tascii: %4d\tisalnum: %4d\tft_isalnum: %4d\n",
 		-1, -1, isalnum(-1), ft_isalnum(-1));
-	printf("Character: %3c\tascii: %3d\tisalnum: %3d\tft_isalnum: %3d\n",
+	printf("Character: %4c\tascii: %4d\tisalnum: %4d\tft_isalnum: %4d\n",
 		0, 0, isalnum(0), ft_isalnum(0));
-	printf("Character: %3c\tascii: %3d\tisalnum: %3d\tft_isalnum: %3d\n",
+	printf("Character: %4c\tascii: %4d\tisalnum: %4d\tft_isalnum: %4d\n",
 		127, 127, isalnum(127), ft_isalnum(127));
-	printf("Character: %3c\tascii: %3d\tisalnum: %3d\tft_isalnum: %3d\n",
+	printf("Character: %4c\tascii: %4d\tisalnum: %4d\tft_isalnum: %4d\n",
 		255, 255, isalnum(255), ft_isalnum(255));
 	printf("\n");
 	return (0);

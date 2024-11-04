@@ -21,7 +21,15 @@ int	main(int argc, char **argv)
 	int		i;
 
 	if (argc == 1)
-		s = "Test string 0123456789 abcxyz ABCXYZ !#|~";
+	{
+		printf("\n\n");
+		i = -2;
+		while (++i < 129)
+			printf("Character: %4c\tascii: %4d\tisascii: %4d\tft_isascii: %4d\n",
+				i, i, isascii(i), ft_isascii(i));
+		printf("\n");
+		return (0);
+	}
 	if (argc == 2)
 		s = argv[1];
 	if (argc > 2)
@@ -33,18 +41,18 @@ int	main(int argc, char **argv)
 	i = -1;
 	while (++i <= (int)strlen(s))
 	{
-		printf("Character: %3c\tascii: %3d\tisascii: %3d\tft_isascii: %3d\n",
+		printf("Character: %4c\tascii: %4d\tisascii: %4d\tft_isascii: %4d\n",
 			s[i], s[i], isascii(s[i]), ft_isascii(s[i]));
 	}
 	printf("--------------------------------------------------------------\n");
 	printf("Extra tests\n");
-	printf("Character: %3c\tascii: %3d\tisascii: %3d\tft_isascii: %3d\n",
+	printf("Character: %4c\tascii: %4d\tisascii: %4d\tft_isascii: %4d\n",
 		-1, -1, isascii(-1), ft_isascii(-1));
-	printf("Character: %3c\tascii: %3d\tisascii: %3d\tft_isascii: %3d\n",
+	printf("Character: %4c\tascii: %4d\tisascii: %4d\tft_isascii: %4d\n",
 		0, 0, isascii(0), ft_isascii(0));
-	printf("Character: %3c\tascii: %3d\tisascii: %3d\tft_isascii: %3d\n",
+	printf("Character: %4c\tascii: %4d\tisascii: %4d\tft_isascii: %4d\n",
 		127, 127, isascii(127), ft_isascii(127));
-	printf("Character: %3c\tascii: %3d\tisascii: %3d\tft_isascii: %3d\n",
+	printf("Character: %4c\tascii: %4d\tisascii: %4d\tft_isascii: %4d\n",
 		255, 255, isascii(255), ft_isascii(255));
 	printf("\n");
 	return (0);
