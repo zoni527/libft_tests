@@ -21,7 +21,15 @@ int	main(int argc, char **argv)
 	int		i;
 
 	if (argc == 1)
-		s = "Test string 0123456789 abcxyz ABCXYZ !#|~";
+	{
+		printf("\n\n");
+		i = -2;
+		while (++i < 129)
+			printf("Character: %4c\tascii: %4d\tisprint: %4d\tft_isprint: %4d\n",
+				i, i, isprint(i), ft_isprint(i));
+		printf("\n");
+		return (0);
+	}
 	if (argc == 2)
 		s = argv[1];
 	if (argc > 2)
@@ -33,19 +41,9 @@ int	main(int argc, char **argv)
 	i = -1;
 	while (++i <= (int)strlen(s))
 	{
-		printf("Character: %3c\tascii: %3d\tisprint: %3d\tft_isprint: %3d\n",
+		printf("Character: %4c\tascii: %4d\tisprint: %4d\tft_isprint: %4d\n",
 			s[i], s[i], isprint(s[i]), ft_isprint(s[i]));
 	}
-	printf("--------------------------------------------------------------\n");
-	printf("Extra tests\n");
-	i = -2;
-	while (++i < 130)
-		printf("Character: %3c\tascii: %3d\tisprint: %3d\tft_isprint: %3d\n",
-			i, i, isprint(i), ft_isprint(i));
-	printf("Character: %3c\tascii: %3d\tisprint: %3d\tft_isprint: %3d\n",
-		255, 255, isprint(255), ft_isprint(255));
-	printf("Character: %3c\tascii: %3d\tisprint: %3d\tft_isprint: %3d\n",
-		300, 300, isprint(300), ft_isprint(300));
 	printf("\n");
 	return (0);
 }
