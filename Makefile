@@ -88,6 +88,12 @@ ft_memmove_test: ft_memmove_test.c $(SRC)ft_memmove.c
 ft_atoi_test: ft_atoi_test.c $(SRC)ft_atoi.c
 	$(CC) $(CFLAGS) -o ft_atoi_test ft_atoi_test.c $(SRC)ft_atoi.c
 
+ft_strchr_test: ft_strchr_test.c $(SRC)ft_strchr.c
+	$(CC) $(CFLAGS) -o ft_strchr_test ft_strchr_test.c $(SRC)ft_strchr.c
+
+ft_strrchr_test: ft_strrchr_test.c $(SRC)ft_strrchr.c
+	$(CC) $(CFLAGS) -o ft_strrchr_test ft_strrchr_test.c $(SRC)ft_strrchr.c
+
 fclean:
 	rm ./*_test
 

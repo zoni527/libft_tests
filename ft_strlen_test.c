@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 #include <string.h>
-#include "../../Projects/Libft/libft.h"
 
 int	main(int argc, char **argv)
 {

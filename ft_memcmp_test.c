@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove_test.c                                  :+:      :+:    :+:   */
+/*   ft_memcmp_test.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvarila <jvarila@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 12:56:14 by jvarila           #+#    #+#             */
-/*   Updated: 2024/10/31 17:56:16 by jvarila          ###   ########.fr       */
+/*   Created: 2024/11/05 16:41:09 by jvarila           #+#    #+#             */
+/*   Updated: 2024/11/05 16:48:04 by jvarila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,24 @@
 
 int	main(int argc, char **argv)
 {
-	(void)argc;
-	(void)argv;
 	char	buffer1[BUFFER_LENGTH];
 	char	buffer2[BUFFER_LENGTH];
 	char	*s1;
 	char	*s2;
-	void	*void_ptr1;
-	void	*void_ptr2;
+	int		rval1;
+	int		rval2;
 	int		int_array1[INT_ARRAY_LENGTH] = {0};
 	int		int_array2[INT_ARRAY_LENGTH] = {0};
 	int		n = -1;
 	int		i;
 
-	memset(buffer1, 0, BUFFER_LENGTH);
-	memset(buffer2, 0, BUFFER_LENGTH);
-	(void)int_array1;
-	(void)int_array2;
+	memset(buffer1, 0x00000041, BUFFER_LENGTH);
+	memset(buffer2, 0x00000042, BUFFER_LENGTH);
+	memset(int_array1, 0x00000001, sizeof(int_array1));
+	memset(int_array1, 0x00000002, sizeof(int_array2));
 	s1 = "abcdefghijklmnop";
 	s2 = "ABCDEFGHIJKLMNOP";
+
 	if (argc > 1)
 		s1 = argv[1];
 	if (argc > 2)

@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
-#include "../../Projects/Libft/libft.h"
 #include <string.h>
 
 int	main(int argc, char **argv)
@@ -23,7 +23,6 @@ int	main(int argc, char **argv)
 	int		n;
 	int		i;
 
-	printf("\nThe program can be used with 0, 1 or 2 command line arguments\n\n");
 	n = -1;
 	s1 = "abc";
 	s2 = "abcd";
@@ -42,7 +41,7 @@ int	main(int argc, char **argv)
 
 	s1_len = strlen(s1);
 	s2_len = strlen(s2);
-	printf("s1: %s\ns2: %s\n\n", s1, s2);
+	printf("\ns1: %s\ns2: %s\n\n", s1, s2);
 	if (n < 0)
 	{
 		i = 0;
@@ -51,7 +50,7 @@ int	main(int argc, char **argv)
 			printf("%-15s%3d\n", "n:", i);
 			printf("%-15s%3d\n", "strncmp:", strncmp(s1, s2, i));
 			printf("%-15s%3d\n", "ft_strncmp:", ft_strncmp(s1, s2, i));
-			printf("\n\n");
+			printf("\n");
 			i++;
 		}
 	}
@@ -59,7 +58,7 @@ int	main(int argc, char **argv)
 		printf("%20s%3d\n", "n:", n);
 		printf("%20s%3d\n", "strncmp:", strncmp(s1, s2, n));
 		printf("%20s%3d\n", "ft_strncmp:", ft_strncmp(s1, s2, n));
-		printf("\n\n");
+		printf("\n");
 	}
 	return (0);
 }

@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 #include <string.h>
 #include <bsd/string.h>
-#include "../../Projects/Libft/libft.h"
 #define BUFFER_LENGTH 1024
 
 int	main(int argc, char **argv)

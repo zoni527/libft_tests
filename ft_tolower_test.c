@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
-#include "../../Projects/Libft/libft.h"
 #define BUFFER_SIZE 1024
 
 int	main(int argc, char **argv)

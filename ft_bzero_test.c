@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
-#include "../../Projects/Libft/libft.h"
 
 #define BUFFER_SIZE 1024
 #define INT_ARRAY_SIZE 10

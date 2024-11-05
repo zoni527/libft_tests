@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 #include <string.h>
-#include "../../Projects/Libft/libft.h"
 
 int	main(int argc, char **argv)
 {
@@ -29,8 +29,8 @@ int	main(int argc, char **argv)
 		printf("The program can be used with 0 or 1 command line arguments\n");
 		return (0);
 	}
-	printf("\nTest string: %s\n", s);
-	printf("Test string capitalized: ");
+	printf("\n%-25s%s\n","Test string:", s);
+	printf("%-25s", "Test string capitalized:");
 	i = -1;
 	while (++i < (int)strlen(s))
 	{
