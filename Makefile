@@ -13,7 +13,7 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRC = ../../Projects/Libft/
-HF = ../../Projects/Libft/libft.h
+HF = libft.h
 CFILES = ../../Projects/Libft/*.c
 OFILES = $(CFILES:.c=.o)
 
@@ -33,12 +33,12 @@ all:	ft_isalpha_test	\
 	ft_memcpy_test	\
 	ft_memmove_test	\
 	ft_isprint_test	\
+	ft_atoi_test	\
 	ft_strchr_test	\
 	ft_strrchr_test	\
 	ft_memchr_test	\
 	ft_memcmp_test	\
-	ft_strnstr_test	\
-	ft_atoi_test
+	ft_strnstr_test
 
 ft_isdigit_test: ft_isdigit_test.c $(SRC)ft_isdigit.c $(HF)
 	$(CC) $(CFLAGS) -o ft_isdigit_test ft_isdigit_test.c $(SRC)ft_isdigit.c
@@ -84,6 +84,9 @@ ft_memcpy_test: ft_memcpy_test.c $(SRC)ft_memcpy.c
 
 ft_memmove_test: ft_memmove_test.c $(SRC)ft_memmove.c
 	$(CC) $(CFLAGS) -o ft_memmove_test ft_memmove_test.c $(SRC)ft_memmove.c
+
+ft_atoi_test: ft_atoi_test.c $(SRC)ft_atoi.c
+	$(CC) $(CFLAGS) -o ft_atoi_test ft_atoi_test.c $(SRC)ft_atoi.c
 
 fclean:
 	rm ./*_test
