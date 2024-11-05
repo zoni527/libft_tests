@@ -36,9 +36,9 @@ all:	ft_isalpha_test	\
 	ft_atoi_test	\
 	ft_strchr_test	\
 	ft_strrchr_test	\
-	ft_memchr_test	\
 	ft_memcmp_test	\
-	ft_strnstr_test
+	ft_strnstr_test	\
+	ft_memchr_test
 
 ft_isdigit_test: ft_isdigit_test.c $(SRC)ft_isdigit.c $(HF)
 	$(CC) $(CFLAGS) -o ft_isdigit_test ft_isdigit_test.c $(SRC)ft_isdigit.c
@@ -93,6 +93,12 @@ ft_strchr_test: ft_strchr_test.c $(SRC)ft_strchr.c
 
 ft_strrchr_test: ft_strrchr_test.c $(SRC)ft_strrchr.c
 	$(CC) $(CFLAGS) -o ft_strrchr_test ft_strrchr_test.c $(SRC)ft_strrchr.c
+
+ft_memcmp_test: ft_memcmp_test.c $(SRC)ft_memcmp.c
+	$(CC) $(CFLAGS) -o ft_memcmp_test ft_memcmp_test.c $(SRC)ft_memcmp.c
+
+ft_strnstr_test: ft_strnstr_test.c $(SRC)ft_strnstr.c
+	$(CC) $(CFLAGS) -o ft_strnstr_test ft_strnstr_test.c $(SRC)ft_strnstr.c -lbsd
 
 fclean:
 	rm ./*_test

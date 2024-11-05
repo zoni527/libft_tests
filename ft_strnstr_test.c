@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp_test.c                                   :+:      :+:    :+:   */
+/*   ft_strnstr_test.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvarila <jvarila@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 16:41:09 by jvarila           #+#    #+#             */
-/*   Updated: 2024/11/05 16:48:04 by jvarila          ###   ########.fr       */
+/*   Created: 2024/11/05 17:43:29 by jvarila           #+#    #+#             */
+/*   Updated: 2024/11/05 17:52:10 by jvarila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 #include <string.h>
+#include <bsd/string.h>
 
 #define BUFFER_LENGTH 1024
 #define INT_ARRAY_LENGTH 10
-
-void	ft_print_int_array(int *array, int n);
 
 int	main(int argc, char **argv)
 {
@@ -25,18 +24,13 @@ int	main(int argc, char **argv)
 	char	buffer2[BUFFER_LENGTH];
 	char	*s1;
 	char	*s2;
-	int		rval1;
-	int		rval2;
-	int		int_array1[INT_ARRAY_LENGTH] = {0};
-	int		int_array2[INT_ARRAY_LENGTH] = {0};
+	char	*rval1;
+	char	*rval2;
 	int		n = -1;
 	int		i;
 
 	memset(buffer1, 0x00000041, BUFFER_LENGTH);
 	memset(buffer2, 0x00000042, BUFFER_LENGTH);
-	memset(int_array1, 0x00000001, sizeof(int_array1));
-	memset(int_array2, 0x00000001, sizeof(int_array2));
-	int_array2[INT_ARRAY_LENGTH - 1] = 0x00000002;
 	s1 = "abcdefghijklmnop";
 	s2 = "abcdefghhijklmno";
 
@@ -59,25 +53,15 @@ int	main(int argc, char **argv)
 		n = strlen(s1) + 1;
 	else if (strlen(s2) <= strlen(s2) && argc != 4)
 		n = strlen(s2) + 1;
-	printf("\n%10s%10s%15s\n", "i", "memcmp", "ft_memcmp");
+	printf("\n%10s%15s%15s\n", "i", "strnstr", "ft_strnstr");
 	printf("------------------------------------------\n");
 	i = -2;
 	while (++i < n)
 	{
-		rval1 = memcmp(s1, s2, i);
-		rval2 = ft_memcmp(s1, s2, i);
-		printf("%10d%7d%15d\n", i, rval1, rval2);
+		rval1 = strnstr(s1, s2, i);
+		rval2 = ft_strnstr(s1, s2, i);
+		printf("%10d%15s%15s\n", i, rval1, rval2);
 	}
 	printf("\n");
 	return (0);
-}
-
-void	ft_print_int_array(int *array, int n)
-{
-	int	i;
-
-	i = -1;
-	while (++i < n)
-		printf("%-5d", array[i]);
-	printf("\n");
 }
