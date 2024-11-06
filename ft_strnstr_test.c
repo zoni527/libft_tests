@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 	memset(buffer1, 0x00000041, BUFFER_LENGTH);
 	memset(buffer2, 0x00000042, BUFFER_LENGTH);
 	s1 = "abcdefghijklmnop";
-	s2 = "abcdefghhijklmno";
+	s2 = "ghijk";
 
 	if (argc > 1)
 		s1 = argv[1];

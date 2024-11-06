@@ -6,7 +6,7 @@
 #    By: jvarila <jvarila@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/30 13:16:04 by jvarila           #+#    #+#              #
-#    Updated: 2024/10/30 13:16:09 by jvarila          ###   ########.fr        #
+#    Updated: 2024/11/06 11:06:58 by jvarila          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,82 +23,97 @@ all:	ft_isalpha_test	\
 	ft_isascii_test	\
 	ft_isprint_test	\
 	ft_strlen_test	\
-	ft_strlcpy_test	\
-	ft_strlcat_test	\
-	ft_toupper_test	\
-	ft_tolower_test	\
-	ft_strncmp_test	\
 	ft_memset_test	\
 	ft_bzero_test	\
 	ft_memcpy_test	\
 	ft_memmove_test	\
-	ft_isprint_test	\
-	ft_atoi_test	\
+	ft_strlcpy_test	\
+	ft_strlcat_test	\
+	ft_toupper_test	\
+	ft_tolower_test	\
 	ft_strchr_test	\
 	ft_strrchr_test	\
+	ft_strncmp_test	\
+	ft_memchr_test	\
 	ft_memcmp_test	\
 	ft_strnstr_test	\
-	ft_memchr_test
-
-ft_isdigit_test: ft_isdigit_test.c $(SRC)ft_isdigit.c $(HF)
-	$(CC) $(CFLAGS) -o ft_isdigit_test ft_isdigit_test.c $(SRC)ft_isdigit.c
+	ft_atoi_test	\
+	ft_calloc_test	\
+	ft_strdup_test	\
+	ft_substr_test
 
 ft_isalpha_test: ft_isalpha_test.c $(SRC)ft_isalpha.c $(HF)
 	$(CC) $(CFLAGS) -o ft_isalpha_test ft_isalpha_test.c $(SRC)ft_isalpha.c
 
+ft_isdigit_test: ft_isdigit_test.c $(SRC)ft_isdigit.c $(HF)
+	$(CC) $(CFLAGS) -o ft_isdigit_test ft_isdigit_test.c $(SRC)ft_isdigit.c
+
 ft_isalnum_test: ft_isalnum_test.c $(SRC)ft_isalnum.c $(HF)
 	$(CC) $(CFLAGS) -o ft_isalnum_test ft_isalnum_test.c $(SRC)ft_isalnum.c
 
-ft_isascii_test: ft_isascii_test.c $(SRC)ft_isascii.c
+ft_isascii_test: ft_isascii_test.c $(SRC)ft_isascii.c $(HF)
 	$(CC) $(CFLAGS) -o ft_isascii_test ft_isascii_test.c $(SRC)ft_isascii.c
 
-ft_isprint_test: ft_isprint_test.c $(SRC)ft_isprint.c
+ft_isprint_test: ft_isprint_test.c $(SRC)ft_isprint.c $(HF)
 	$(CC) $(CFLAGS) -o ft_isprint_test ft_isprint_test.c $(SRC)ft_isprint.c
 
-ft_strlen_test: ft_strlen_test.c $(SRC)ft_strlen.c
+ft_strlen_test: ft_strlen_test.c $(SRC)ft_strlen.c $(HF)
 	$(CC) $(CFLAGS) -o ft_strlen_test ft_strlen_test.c $(SRC)ft_strlen.c
 
-ft_strlcpy_test: ft_strlcpy_test.c $(SRC)ft_strlcpy.c $(SRC)ft_strlen.c
-	$(CC) $(CFLAGS) -o ft_strlcpy_test ft_strlcpy_test.c $(SRC)ft_strlcpy.c $(SRC)ft_strlen.c -lbsd
-
-ft_strlcat_test: ft_strlcat_test.c $(SRC)ft_strlcat.c $(SRC)ft_strlen.c
-	$(CC) $(CFLAGS) -o ft_strlcat_test ft_strlcat_test.c $(SRC)ft_strlcat.c $(SRC)ft_strlen.c -lbsd
-
-ft_toupper_test: ft_toupper_test.c $(SRC)ft_toupper.c
-	$(CC) $(CFLAGS) -o ft_toupper_test ft_toupper_test.c $(SRC)ft_toupper.c
-
-ft_tolower_test: ft_tolower_test.c $(SRC)ft_tolower.c
-	$(CC) $(CFLAGS) -o ft_tolower_test ft_tolower_test.c $(SRC)ft_tolower.c
-
-ft_strncmp_test: ft_strncmp_test.c $(SRC)ft_strncmp.c
-	$(CC) $(CFLAGS) -o ft_strncmp_test ft_strncmp_test.c $(SRC)ft_strncmp.c
-
-ft_memset_test: ft_memset_test.c $(SRC)ft_memset.c
+ft_memset_test: ft_memset_test.c $(SRC)ft_memset.c $(HF)
 	$(CC) $(CFLAGS) -o ft_memset_test ft_memset_test.c $(SRC)ft_memset.c
 
-ft_bzero_test: ft_bzero_test.c $(SRC)ft_bzero.c
+ft_bzero_test: ft_bzero_test.c $(SRC)ft_bzero.c $(HF)
 	$(CC) $(CFLAGS) -o ft_bzero_test ft_bzero_test.c $(SRC)ft_bzero.c
 
-ft_memcpy_test: ft_memcpy_test.c $(SRC)ft_memcpy.c
+ft_memcpy_test: ft_memcpy_test.c $(SRC)ft_memcpy.c $(HF)
 	$(CC) $(CFLAGS) -o ft_memcpy_test ft_memcpy_test.c $(SRC)ft_memcpy.c
 
-ft_memmove_test: ft_memmove_test.c $(SRC)ft_memmove.c
+ft_memmove_test: ft_memmove_test.c $(SRC)ft_memmove.c $(HF)
 	$(CC) $(CFLAGS) -o ft_memmove_test ft_memmove_test.c $(SRC)ft_memmove.c
 
-ft_atoi_test: ft_atoi_test.c $(SRC)ft_atoi.c
-	$(CC) $(CFLAGS) -o ft_atoi_test ft_atoi_test.c $(SRC)ft_atoi.c
+ft_strlcpy_test: ft_strlcpy_test.c $(SRC)ft_strlcpy.c $(SRC)ft_strlen.c $(HF)
+	$(CC) $(CFLAGS) -o ft_strlcpy_test ft_strlcpy_test.c $(SRC)ft_strlcpy.c $(SRC)ft_strlen.c -lbsd
 
-ft_strchr_test: ft_strchr_test.c $(SRC)ft_strchr.c
+ft_strlcat_test: ft_strlcat_test.c $(SRC)ft_strlcat.c $(SRC)ft_strlen.c $(HF)
+	$(CC) $(CFLAGS) -o ft_strlcat_test ft_strlcat_test.c $(SRC)ft_strlcat.c $(SRC)ft_strlen.c -lbsd
+
+ft_toupper_test: ft_toupper_test.c $(SRC)ft_toupper.c $(HF)
+	$(CC) $(CFLAGS) -o ft_toupper_test ft_toupper_test.c $(SRC)ft_toupper.c
+
+ft_tolower_test: ft_tolower_test.c $(SRC)ft_tolower.c $(HF)
+	$(CC) $(CFLAGS) -o ft_tolower_test ft_tolower_test.c $(SRC)ft_tolower.c
+
+ft_strchr_test: ft_strchr_test.c $(SRC)ft_strchr.c $(HF)
 	$(CC) $(CFLAGS) -o ft_strchr_test ft_strchr_test.c $(SRC)ft_strchr.c
 
-ft_strrchr_test: ft_strrchr_test.c $(SRC)ft_strrchr.c
+ft_strrchr_test: ft_strrchr_test.c $(SRC)ft_strrchr.c $(HF)
 	$(CC) $(CFLAGS) -o ft_strrchr_test ft_strrchr_test.c $(SRC)ft_strrchr.c
 
-ft_memcmp_test: ft_memcmp_test.c $(SRC)ft_memcmp.c
+ft_strncmp_test: ft_strncmp_test.c $(SRC)ft_strncmp.c $(HF)
+	$(CC) $(CFLAGS) -o ft_strncmp_test ft_strncmp_test.c $(SRC)ft_strncmp.c
+
+ft_memchr_test: ft_memchr_test.c $(SRC)ft_memchr.c $(HF)
+	$(CC) $(CFLAGS) -o ft_memchr_test ft_memchr_test.c $(SRC)ft_memchr.c -lbsd
+
+ft_memcmp_test: ft_memcmp_test.c $(SRC)ft_memcmp.c $(HF)
 	$(CC) $(CFLAGS) -o ft_memcmp_test ft_memcmp_test.c $(SRC)ft_memcmp.c
 
-ft_strnstr_test: ft_strnstr_test.c $(SRC)ft_strnstr.c
+ft_strnstr_test: ft_strnstr_test.c $(SRC)ft_strnstr.c $(HF)
 	$(CC) $(CFLAGS) -o ft_strnstr_test ft_strnstr_test.c $(SRC)ft_strnstr.c -lbsd
+
+ft_atoi_test: ft_atoi_test.c $(SRC)ft_atoi.c $(HF)
+	$(CC) $(CFLAGS) -o ft_atoi_test ft_atoi_test.c $(SRC)ft_atoi.c
+
+ft_calloc_test: ft_calloc_test.c $(SRC)ft_calloc.c $(SRC)ft_memset.c $(HF)
+	$(CC) $(CFLAGS) -o ft_calloc_test ft_calloc_test.c $(SRC)ft_calloc.c $(SRC)ft_memset.c
+
+ft_strdup_test: ft_strdup_test.c $(SRC)ft_strdup.c $(SRC)ft_memcpy.c $(SRC)ft_strlen.c $(HF)
+	$(CC) $(CFLAGS) -o ft_strdup_test ft_strdup_test.c $(SRC)ft_strdup.c $(SRC)ft_memcpy.c $(SRC)ft_strlen.c
+
+ft_substr_test: ft_substr_test.c $(SRC)ft_substr.c $(SRC)ft_calloc.c $(SRC)ft_strlen.c $(SRC)ft_strlcpy.c $(SRC)ft_memset.c $(HF)
+	$(CC) $(CFLAGS) -o ft_substr_test ft_substr_test.c $(SRC)ft_substr.c \
+		$(SRC)ft_calloc.c $(SRC)ft_strlen.c $(SRC)ft_strlcpy.c $(SRC)ft_memset.c
 
 fclean:
 	rm ./*_test
