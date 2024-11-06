@@ -40,10 +40,16 @@ all:	ft_isalpha_test	\
 	ft_atoi_test	\
 	ft_calloc_test	\
 	ft_strdup_test	\
-	ft_substr_test
+	ft_substr_test	\
+	ft_strjoin_test	\
+	ft_strtrim_test	\
+	ft_split_test
 
-ft_isalpha_test: ft_isalpha_test.c $(SRC)ft_isalpha.c $(HF)
-	$(CC) $(CFLAGS) -o ft_isalpha_test ft_isalpha_test.c $(SRC)ft_isalpha.c
+ft_isalpha_test:	$(HF)			\
+			ft_isalpha_test.c	\
+			$(SRC)ft_isalpha.c
+	$(CC) $(CFLAGS) -o ft_isalpha_test ft_isalpha_test.c \
+			$(SRC)ft_isalpha.c
 
 ft_isdigit_test: ft_isdigit_test.c $(SRC)ft_isdigit.c $(HF)
 	$(CC) $(CFLAGS) -o ft_isdigit_test ft_isdigit_test.c $(SRC)ft_isdigit.c
@@ -114,6 +120,52 @@ ft_strdup_test: ft_strdup_test.c $(SRC)ft_strdup.c $(SRC)ft_memcpy.c $(SRC)ft_st
 ft_substr_test: ft_substr_test.c $(SRC)ft_substr.c $(SRC)ft_calloc.c $(SRC)ft_strlen.c $(SRC)ft_strlcpy.c $(SRC)ft_memset.c $(HF)
 	$(CC) $(CFLAGS) -o ft_substr_test ft_substr_test.c $(SRC)ft_substr.c \
 		$(SRC)ft_calloc.c $(SRC)ft_strlen.c $(SRC)ft_strlcpy.c $(SRC)ft_memset.c
+
+ft_strjoin_test:	$(HF)			\
+			ft_strjoin_test.c       \
+			$(SRC)ft_strjoin.c      \
+			$(SRC)ft_strlen.c       \
+			$(SRC)ft_strlcat.c
+	$(CC) $(CFLAGS) -o ft_strjoin_test ft_strjoin_test.c \
+			$(SRC)ft_strjoin.c	\
+			$(SRC)ft_strlen.c 	\
+			$(SRC)ft_strlcat.c
+
+ft_strtrim_test:	$(HF)			\
+			ft_strtrim_test.c	\
+			$(SRC)ft_strtrim.c	\
+			$(SRC)ft_strrchr.c	\
+			$(SRC)ft_strchr.c	\
+			$(SRC)ft_calloc.c	\
+			$(SRC)ft_memset.c	\
+			$(SRC)ft_strlcpy.c	\
+			$(SRC)ft_strlen.c
+	$(CC) $(CFLAGS) -o ft_strtrim_test ft_strtrim_test.c \
+			$(SRC)ft_strtrim.c	\
+			$(SRC)ft_strrchr.c	\
+			$(SRC)ft_strchr.c	\
+			$(SRC)ft_calloc.c	\
+			$(SRC)ft_memset.c	\
+			$(SRC)ft_strlcpy.c	\
+			$(SRC)ft_strlen.c
+
+ft_split_test:		$(HF)			\
+			ft_split_test.c		\
+			$(SRC)ft_split.c	\
+			$(SRC)ft_strchr.c	\
+			$(SRC)ft_calloc.c	\
+			$(SRC)ft_substr.c	\
+			$(SRC)ft_memset.c	\
+			$(SRC)ft_strlcpy.c	\
+			$(SRC)ft_strlen.c
+	$(CC) $(CFLAGS) -o ft_split_test ft_split_test.c \
+			$(SRC)ft_split.c	\
+			$(SRC)ft_strchr.c	\
+			$(SRC)ft_calloc.c	\
+			$(SRC)ft_substr.c	\
+			$(SRC)ft_memset.c	\
+			$(SRC)ft_strlcpy.c	\
+			$(SRC)ft_strlen.c
 
 fclean:
 	rm ./*_test
