@@ -78,5 +78,6 @@ int	main(int argc, char **argv)
 	ft_memmove(buffer2, buffer2 + offset, chars);
 	printf("%s%-20s\n", "buffer 1:   ", buffer1);
 	printf("%s%-20s\n", "buffer 2:   ", buffer2);
+	printf("\n");
 	return (0);
 }

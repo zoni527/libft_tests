@@ -60,5 +60,12 @@ int	main(int argc, char **argv)
 		printf("%20s%3d\n", "ft_strncmp:", ft_strncmp(s1, s2, n));
 		printf("\n");
 	}
+	s1 = "test\200";
+	s2 = "test\0";
+	printf("\ns1: %s\ns2: %s\n\n", s1, s2);
+	printf("%-15s%3d\n", "n:", 6);
+	printf("%-15s%3d\n", "strncmp:", strncmp(s1, s2, 6));
+	printf("%-15s%3d\n", "ft_strncmp:", ft_strncmp(s1, s2, 6));
+	printf("\n");
 	return (0);
 }

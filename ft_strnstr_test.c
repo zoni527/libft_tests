@@ -50,9 +50,9 @@ int	main(int argc, char **argv)
 	printf("%-10s%s\n", "String 1:", s1);
 	printf("%-10s%s\n", "String 2:", s2);
 	if (strlen(s1) > strlen(s2) && argc != 4)
-		n = strlen(s1) + 1;
+		n = strlen(s1);
 	else if (strlen(s2) <= strlen(s2) && argc != 4)
-		n = strlen(s2) + 1;
+		n = strlen(s2);
 	printf("\n%10s%15s%15s\n", "i", "strnstr", "ft_strnstr");
 	printf("------------------------------------------\n");
 	i = -2;

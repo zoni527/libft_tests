@@ -12,38 +12,45 @@
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRC = ../../Projects/Libft/
+SRC = ../../Projects/libft/
 HF = libft.h
 CFILES = ../../Projects/Libft/*.c
 OFILES = $(CFILES:.c=.o)
 
-all:	ft_isalpha_test	\
-	ft_isdigit_test	\
-	ft_isalnum_test	\
-	ft_isascii_test	\
-	ft_isprint_test	\
-	ft_strlen_test	\
-	ft_memset_test	\
-	ft_bzero_test	\
-	ft_memcpy_test	\
-	ft_memmove_test	\
-	ft_strlcpy_test	\
-	ft_strlcat_test	\
-	ft_toupper_test	\
-	ft_tolower_test	\
-	ft_strchr_test	\
-	ft_strrchr_test	\
-	ft_strncmp_test	\
-	ft_memchr_test	\
-	ft_memcmp_test	\
-	ft_strnstr_test	\
-	ft_atoi_test	\
-	ft_calloc_test	\
-	ft_strdup_test	\
-	ft_substr_test	\
-	ft_strjoin_test	\
-	ft_strtrim_test	\
-	ft_split_test
+all:	ft_isalpha_test		\
+	ft_isdigit_test		\
+	ft_isalnum_test		\
+	ft_isascii_test		\
+	ft_isprint_test		\
+	ft_strlen_test		\
+	ft_memset_test		\
+	ft_bzero_test		\
+	ft_memcpy_test		\
+	ft_memmove_test		\
+	ft_strlcpy_test		\
+	ft_strlcat_test		\
+	ft_toupper_test		\
+	ft_tolower_test		\
+	ft_strchr_test		\
+	ft_strrchr_test		\
+	ft_strncmp_test		\
+	ft_memchr_test		\
+	ft_memcmp_test		\
+	ft_strnstr_test		\
+	ft_atoi_test		\
+	ft_calloc_test		\
+	ft_strdup_test		\
+	ft_substr_test		\
+	ft_strjoin_test		\
+	ft_strtrim_test		\
+	ft_split_test		\
+	ft_itoa_test		\
+	ft_strmapi_test		\
+	ft_striteri_test	\
+	ft_putchar_fd_test	\
+	ft_putstr_fd_test	\
+	ft_putendl_fd_test	\
+	ft_putnbr_fd_test
 
 ft_isalpha_test:	$(HF)			\
 			ft_isalpha_test.c	\
@@ -167,8 +174,88 @@ ft_split_test:		$(HF)			\
 			$(SRC)ft_strlcpy.c	\
 			$(SRC)ft_strlen.c
 
+ft_itoa_test:		$(HF)			\
+			ft_itoa_test.c		\
+			$(SRC)ft_itoa.c		\
+			$(SRC)ft_strlen.c
+	$(CC) $(CFLAGS) -o ft_itoa_test ft_itoa_test.c \
+			$(SRC)ft_itoa.c		\
+			$(SRC)ft_strlen.c
+
+ft_strmapi_test:	$(HF)			\
+			ft_strmapi_test.c	\
+			$(SRC)ft_strmapi.c	\
+			$(SRC)ft_strdup.c	\
+			$(SRC)ft_strlen.c	\
+			$(SRC)ft_memcpy.c
+	$(CC) $(CFLAGS) -o ft_strmapi_test ft_strmapi_test.c \
+			$(SRC)ft_strmapi.c	\
+			$(SRC)ft_strdup.c	\
+			$(SRC)ft_strlen.c	\
+			$(SRC)ft_memcpy.c
+
+ft_striteri_test:	$(HF)			\
+			ft_striteri_test.c	\
+			$(SRC)ft_striteri.c	\
+			$(SRC)ft_strdup.c	\
+			$(SRC)ft_strlen.c	\
+			$(SRC)ft_memcpy.c
+	$(CC) $(CFLAGS) -o ft_striteri_test ft_striteri_test.c \
+			$(SRC)ft_striteri.c	\
+			$(SRC)ft_strdup.c	\
+			$(SRC)ft_strlen.c	\
+			$(SRC)ft_memcpy.c
+
+ft_putchar_fd_test:	$(HF)			\
+			ft_putchar_fd_test.c	\
+			$(SRC)ft_putchar_fd.c	\
+			$(SRC)ft_strdup.c	\
+			$(SRC)ft_strlen.c	\
+			$(SRC)ft_memcpy.c	
+	$(CC) $(CFLAGS) -o ft_putchar_fd_test ft_putchar_fd_test.c \
+			$(SRC)ft_putchar_fd.c	\
+			$(SRC)ft_strdup.c	\
+			$(SRC)ft_strlen.c	\
+			$(SRC)ft_memcpy.c
+
+ft_putstr_fd_test:	$(HF)			\
+			ft_putstr_fd_test.c	\
+			$(SRC)ft_putstr_fd.c	\
+			$(SRC)ft_strdup.c	\
+			$(SRC)ft_strlen.c	\
+			$(SRC)ft_memcpy.c	
+	$(CC) $(CFLAGS) -o ft_putstr_fd_test ft_putstr_fd_test.c \
+			$(SRC)ft_putstr_fd.c	\
+			$(SRC)ft_strdup.c	\
+			$(SRC)ft_strlen.c	\
+			$(SRC)ft_memcpy.c
+
+ft_putendl_fd_test:	$(HF)			\
+			ft_putendl_fd_test.c	\
+			$(SRC)ft_putendl_fd.c	\
+			$(SRC)ft_strdup.c	\
+			$(SRC)ft_strlen.c	\
+			$(SRC)ft_memcpy.c	
+	$(CC) $(CFLAGS) -o ft_putendl_fd_test ft_putendl_fd_test.c \
+			$(SRC)ft_putendl_fd.c	\
+			$(SRC)ft_strdup.c	\
+			$(SRC)ft_strlen.c	\
+			$(SRC)ft_memcpy.c
+
+ft_putnbr_fd_test:	$(HF)			\
+			ft_putnbr_fd_test.c	\
+			$(SRC)ft_putstr_fd.c	\
+			$(SRC)ft_strlen.c	\
+			$(SRC)ft_itoa.c		\
+			$(SRC)ft_putnbr_fd.c
+	$(CC) $(CFLAGS) -o ft_putnbr_fd_test ft_putnbr_fd_test.c \
+			$(SRC)ft_putstr_fd.c	\
+			$(SRC)ft_strlen.c	\
+			$(SRC)ft_itoa.c		\
+			$(SRC)ft_putnbr_fd.c
+
 fclean:
-	rm ./*_test
+	rm -f ./*_test
 
 clean:
 
