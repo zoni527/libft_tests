@@ -13,18 +13,23 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LIB = libft.a
+LIBFOLDER = ../../Projects/libft/
 SRC = $(wildcard ./*.c)
-OBJ = $(SRC:.c=.o)
-TSTS = $(SRC:.c="")
+TSTS = $(SRC:.c=)
 
-all: $(LIB) $(SRC) $(SRC:.c=)
+all: $(TSTS) $(LIB)
 
-$(SRC:.c=): %:%.c
+$(TSTS): %:%.c $(LIB)
 	$(CC) $(CFLAGS) $@.c -L. -l:$(LIB) -lbsd -o $@
 
-.PHONY: clean fclean
+.PHONY: clean fclean all
 
 fclean:
 	rm -f ./*_test
 
 clean:
+
+$(LIB): $(LIBFOLDER)libft.a
+	cp $< ./
+
+$(LIBFOLDER)libft.a:
