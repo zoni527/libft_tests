@@ -55,8 +55,8 @@ int	main(int argc, char **argv)
 		n = strlen(s2);
 	printf("\n%10s%15s%15s\n", "i", "strnstr", "ft_strnstr");
 	printf("------------------------------------------\n");
-	i = -2;
-	while (++i < n)
+	i = -1;
+	while (++i < n + 2)
 	{
 		rval1 = strnstr(s1, s2, i);
 		rval2 = ft_strnstr(s1, s2, i);
