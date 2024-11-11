@@ -54,3 +54,4 @@ dkms.conf
 *_test
 *temp
 *.bak
+libft.h
