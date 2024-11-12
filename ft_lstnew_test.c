@@ -6,7 +6,7 @@
 /*   By: jvarila <jvarila@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:43:29 by jvarila           #+#    #+#             */
-/*   Updated: 2024/11/11 17:25:50 by jvarila          ###   ########.fr       */
+/*   Updated: 2024/11/12 10:44:23 by jvarila          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ int	main(int argc, char **argv)
 	t_list	*node;
 	char	*data;
 	char	**split;
-	int		n;
-	int		i;
+	int		lst_len;
 
 	s1 =	"abcdefghijklmnopqrstuvwxyz "
 			"ABCDEFGHIJKLMNOPQRSTUVWXYZ "
@@ -69,33 +68,21 @@ int	main(int argc, char **argv)
 	}
 	printf("\n");
 	print_list(lst);
+	lst_len = ft_lstsize(lst);
+	printf("\n%-45s%d\n", "ft_lstsize(lst):", lst_len);
+	printf("\n%-45s\n", "Adding element with ft_lstadd_back");
+	node = ft_lstnew(ft_strdup("ft_lstadd_back_test"));
+	ft_lstadd_back(&lst, node);
+	printf("\n%-45s%s\n", "(char *)ft_lstlast(lst)->content:", (char *)ft_lstlast(lst)->content);
+	printf("\n%-45s\n", "Deleting last node with ft_lstdelone");
+	node = lst;
+	while (node->next && node->next->next)
+		node = node->next;
+	ft_lstdelone(node->next, free);
+	node->next = NULL;
+	print_list(lst);
+	return (0);
 	ft_lstclear(&lst, free);
 	free(split);
-	return (0);
-
-	if (argc > 2)
-	{
-	}
-
-	if (argc > 3)
-		;;
-	if (argc > 4)
-	{
-		printf("\nThe program works with 0, 1, 2 or 3 command line arguments\n\n");
-		return (0);
-	}
-
-	printf("\n");
-	printf("\n");
-	printf("%-10s%s\n", "String 1:", s1);
-	printf("\n%10s%15s%15s\n", "i", "strnstr", "ft_strnstr");
-	printf("------------------------------------------\n");
-	n = 10;
-	i = -1;
-	while (++i < n + 2)
-	{
-		;
-	}
-	printf("\n");
 	return (0);
 }
