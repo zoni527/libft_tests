@@ -22,14 +22,14 @@ all: $(TSTS) $(LIB)
 $(TSTS): %:%.c $(LIB)
 	$(CC) $(CFLAGS) $@.c -L. -l:$(LIB) -lbsd -o $@
 
-.PHONY: clean fclean all
+$(LIB): $(LIBFOLDER)$(LIB)
+	cp $< ./
 
 fclean:
 	rm -f ./*_test
 
 clean:
 
-$(LIB): $(LIBFOLDER)libft.a
-	cp $< ./
+re: fclean all
 
-$(LIBFOLDER)libft.a:
+.PHONY: clean fclean all re
