@@ -6,30 +6,40 @@
 #    By: jvarila <jvarila@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/30 13:16:04 by jvarila           #+#    #+#              #
-#    Updated: 2024/11/06 11:06:58 by jvarila          ###   ########.fr        #
+#    Updated: 2025/04/25 14:35:38 by jvarila          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
-LIB = libft.a
-LIBFOLDER = ../../Projects/libft/
+CFLAGS = -Wall -Wextra -Werror -g
+# ---------------------------------------------------------------------------- #
+LIBFT = libft.a
+LIBFT_H = libft.h
+LIBFT_FOLDER = ..
+LIBFT_H_FOLDER = ..
+# ---------------------------------------------------------------------------- #
 SRC = $(wildcard ./*.c)
-TSTS = $(SRC:.c=)
+TESTS = $(SRC:.c=)
+# ---------------------------------------------------------------------------- #
+all: $(TESTS)
 
-all: $(TSTS) $(LIB)
+$(TESTS): %: %.c $(LIBFT) $(LIBFT_H)
+	$(CC) $(CFLAGS) $< -lbsd $(LIBFT) -o $@
 
-$(TSTS): %:%.c $(LIB)
-	$(CC) $(CFLAGS) $@.c -L. -l:$(LIB) -lbsd -o $@
+$(LIBFT): $(LIBFT_FOLDER)/$(LIBFT)
+	cp $(LIBFT_FOLDER)/$(LIBFT) $@
 
-$(LIB): $(LIBFOLDER)$(LIB)
-	cp $< ./
-
-fclean:
-	rm -f ./*_test
+$(LIBFT_H): $(LIBFT_H_FOLDER)/$(LIBFT_H)
+	cp $(LIBFT_H_FOLDER)/$(LIBFT_H) $@
 
 clean:
+	rm -f $(LIBFT)
+	rm -f $(LIBFT_H)
+	rm -f $(TESTS)
+
+fclean: clean
 
 re: fclean all
-
+# ---------------------------------------------------------------------------- #
 .PHONY: clean fclean all re
+# ---------------------------------------------------------------------------- #
