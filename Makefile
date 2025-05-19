@@ -6,38 +6,34 @@
 #    By: jvarila <jvarila@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/30 13:16:04 by jvarila           #+#    #+#              #
-#    Updated: 2025/04/25 14:35:38 by jvarila          ###   ########.fr        #
+#    Updated: 2025/05/19 14:24:55 by jvarila          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
-# ---------------------------------------------------------------------------- #
-LIBFT = libft.a
-LIBFT_H = libft.h
-LIBFT_FOLDER = ..
-LIBFT_H_FOLDER = ..
-# ---------------------------------------------------------------------------- #
+CFLAGS = -Wall -Wextra -Werror
+LIBFT_DIR = ../
 SRC = $(wildcard ./*.c)
 TESTS = $(SRC:.c=)
 # ---------------------------------------------------------------------------- #
 all: $(TESTS)
 
-$(TESTS): %: %.c $(LIBFT) $(LIBFT_H)
-	$(CC) $(CFLAGS) $< -lbsd $(LIBFT) -o $@
+all: $(TSTS) libft.a
 
-$(LIBFT): $(LIBFT_FOLDER)/$(LIBFT)
-	cp $(LIBFT_FOLDER)/$(LIBFT) $@
+$(TSTS): %:%.c libft.a libft.h
+	$(CC) $(CFLAGS) $@.c -I. -L. -lft -lbsd -o $@
 
-$(LIBFT_H): $(LIBFT_H_FOLDER)/$(LIBFT_H)
-	cp $(LIBFT_H_FOLDER)/$(LIBFT_H) $@
+libft.a: $(LIBFT_DIR)/libft.a
+	cp $< ./
+
+libft.h: $(LIBFT_DIR)/libft.h
+	cp $< ./
 
 clean:
-	rm -f $(LIBFT)
-	rm -f $(LIBFT_H)
-	rm -f $(TESTS)
+	rm -f libft.a libft.h
 
 fclean: clean
+	rm -f ./*_test
 
 re: fclean all
 # ---------------------------------------------------------------------------- #
