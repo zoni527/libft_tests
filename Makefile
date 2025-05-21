@@ -11,26 +11,20 @@
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
-LIBFT_DIR = ../
+:c
+LIBFT_DIR = /home/jvarila/Repos/libft
 SRC = $(wildcard ./*.c)
 TESTS = $(SRC:.c=)
 # ---------------------------------------------------------------------------- #
 all: $(TESTS)
 
-all: $(TSTS) libft.a
+$(TESTS): %: %.c $(LIBFT_DIR)/libft.a $(LIBFT_DIR)/libft.h
+	$(CC) $(CFLAGS) $@.c -I$(LIBFT_DIR) -lbsd -L$(LIBFT_DIR) -lft -o $@
 
-$(TSTS): %:%.c libft.a libft.h
-	$(CC) $(CFLAGS) $@.c -I. -L. -lft -lbsd -o $@
-
-libft.a: $(LIBFT_DIR)/libft.a
-	cp $< ./
-
-libft.h: $(LIBFT_DIR)/libft.h
-	cp $< ./
+$(LIBFT_DIR)/libft.a:
+	make -C $(LIBFT_DIR)
 
 clean:
-	rm -f libft.a libft.h
 
 fclean: clean
 	rm -f ./*_test
