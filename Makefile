@@ -11,7 +11,6 @@
 # **************************************************************************** #
 
 CC = cc
-:c
 LIBFT_DIR = /home/jvarila/Repos/libft
 SRC = $(wildcard ./*.c)
 TESTS = $(SRC:.c=)
@@ -19,7 +18,7 @@ TESTS = $(SRC:.c=)
 all: $(TESTS)
 
 $(TESTS): %: %.c $(LIBFT_DIR)/libft.a $(LIBFT_DIR)/libft.h
-	$(CC) $(CFLAGS) $@.c -I$(LIBFT_DIR) -lbsd -L$(LIBFT_DIR) -lft -o $@
+	$(CC) $(CFLAGS) $< -I$(LIBFT_DIR) -lbsd -L$(LIBFT_DIR) -lft -o $@
 
 $(LIBFT_DIR)/libft.a:
 	make -C $(LIBFT_DIR)
